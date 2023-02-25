@@ -46,7 +46,7 @@ myNumber();
 */
 
 const getLine = (string, minLength, addLength) => {
-let line = minLength - string.length;
+  let line = minLength - string.length;
   if(line <= 0){
     return string;
   }
