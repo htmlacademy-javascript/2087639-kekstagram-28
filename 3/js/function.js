@@ -1,11 +1,9 @@
 
 /* Функция для проверки длины строки */
 function checkStringLength(theLine, lengthLine) {
-  if (theLine.length <= lengthLine) {
-    return theLine.length <= lengthLine;
-  } return false;
+  return theLine.length <= lengthLine;
 }
-console.log(checkStringLength());
+console.log(checkStringLength('проверяемая строка', 18));
 
 /* Функция для проверки, является ли строка палиндромом */
 
@@ -18,20 +16,22 @@ const isPalindrome = function (line) {
   }
   return true;
 };
-console.log(isPalindrome());
+console.log(isPalindrome('Лёша на полке клопа нашёл '));
 
 /* Функция, которая принимает строку, извлекает содержащиеся в ней цифры от 0 до 9 и возвращает их
 в виде целого положительного числа. Если в строке нет ни одной цифры, функция должна вернуть NaN: */
 
 const myNumber = function (line) {
   const lineParser = /[0-9]/g;
-  const findedNumber = line.match(lineParser);
+  const findedNumber = line
+  .toString(10)
+  .match(lineParser);
   if (findedNumber === null) {
     return NaN;
   }
-  console.log(findedNumber.join(''));
+  return findedNumber.join('');
 };
-console.log(myNumber());
+console.log(myNumber('1 кефир, 0.5 батона'));
 
 /* Функция, которая принимает три параметра: исходную строку,
 минимальную длину и строку с добавочными символами — и возвращает исходную строку,
@@ -48,4 +48,4 @@ const addSymbolsToString = (string, minLength, addLength) => {
   return addLength.slice(0, line % addLength.length) + addLength.repeat(line
     / addLength.length) + string;
 };
-console.log(addSymbolsToString());
+console.log(addSymbolsToString('qwerty', 4, '0'));
